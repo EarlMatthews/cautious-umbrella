@@ -21,29 +21,35 @@ b.left = d
 b.right = e
 c.right = f
 
-# def tree_levels(root):
-#   if root is None:
-#     return []
-#   stack  = [(root, 0)]  # stack will hold node value and level
-#   levels = []  # tree_levels return value
 
-#   while stack:
-#     node, level_num = stack.pop() # (node_value, level)
+def tree_levels_stack(root):
+    '''
+        DOC_STRING
+    '''
+    if root is None:
+        return []
+    stack = [(root, 0)]  # stack will hold node value and level
+    levels = []  # tree_levels return value
 
-#     if len(levels) == level_num:
-#       levels.append([node.val])
-#     else:
-#       levels[level_num].append(node.val)
+    while stack:
+        node, level_num = stack.pop()  # (node_value, level)
 
-#     if node.right is not None:
-#       stack.append((node.right, level_num + 1))
-#     if node.left is not None:
-#       stack.append((node.left, level_num + 1))
-#   return levels
+        if len(levels) == level_num:
+            levels.append([node.val])
+        else:
+            levels[level_num].append(node.val)
+
+        if node.right is not None:
+            stack.append((node.right, level_num + 1))
+        if node.left is not None:
+            stack.append((node.left, level_num + 1))
+
+    return levels
 
 
 def tree_levels(root):
     '''
+    DOC_STRING:
     '''
     if root is None:
         return []
@@ -65,5 +71,7 @@ def tree_levels(root):
             queue.append((node.right, level_num + 1))
 
     return levels
- 
+
+
 print(tree_levels(a))
+print(tree_levels_stack(a))
