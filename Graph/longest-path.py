@@ -18,7 +18,7 @@ def longest_path(graph):
     return max(distance.values())
 
 def traverse_distance(graph, node, distance):
-    # if we already have the distance for a node, retrun it
+    # if we already have the distance for a node, return it
     if node in distance:
         return distance[node]
     
