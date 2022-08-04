@@ -1,16 +1,27 @@
 # def anagrams(s1, s2):
-#   return sorted(s1) == sorted(s2)
+# 	'''
+# 	This works and only requires one line
+# 	Time complexity for Tim sort is O(n) and 
+# 	Space Complexity is O(n)
+# 	'''
+# 	return sorted(s1) == sorted(s2)
 
 def anagrams(s1,s2):
-  return char_count(s1) == char_count(s2)
+	"""
+	Uses helper function char_count(s) to store 
+	"""
+	return char_count(s1) == char_count(s2)
 
 def char_count(s):
-  count = {}
-  for char in s:
-    if char not in count:
-      count[char] = 0
-    count[char] += 1
-  return count
+	'''
+	Use dictionary for constant time comparison of items to dictionary
+	'''
+	count = {}
+	for char in s:
+		if char not in count:
+			count[char] = 0
+		count[char] += 1
+	return count
 
 print(anagrams('restful', 'fluster'))           # -> True
 print(anagrams('cats', 'tocs'))                 # -> False
